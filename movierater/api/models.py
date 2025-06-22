@@ -8,6 +8,9 @@ class Movie(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=255)
 
+    def no_of_ratings(self):
+        ratings = Rating.objects.filter(movie=self)
+        return len(ratings)
 
 
 class Rating(models.Model):
